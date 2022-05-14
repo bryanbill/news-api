@@ -5,7 +5,7 @@ public class Users {
     private String username;
     private String fullName;
 
-    private String departmentId;
+    private int departmentId;
     private String email;
     private String phone;
     private String roles;
@@ -14,7 +14,7 @@ public class Users {
     private String createdAt;
     private String updatedAt;
 
-    public Users(String username, String fullName, String departmentId,
+    public Users(String username, String fullName, int departmentId,
                  String email, String phone, String roles, String position, String address) {
 
         this.username = username;
@@ -39,7 +39,7 @@ public class Users {
         return fullName;
     }
 
-    public String getDepartmentId() {
+    public int getDepartmentId() {
         return departmentId;
     }
 

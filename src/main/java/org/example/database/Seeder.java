@@ -11,7 +11,7 @@ public class Seeder {
                             "users (id SERIAL PRIMARY KEY, username VARCHAR(255) NOT NULL," +
                             "fullname VARCHAR(255) NOT NULL, roles VARCHAR(255) NOT NULL," +
                             "email VARCHAR(255) NOT NULL, phone VARCHAR(255) NOT NULL," +
-                            "pos TEXT, departmentid INTEGER," +
+                            "position TEXT, departmentid INTEGER," +
                             "address VARCHAR(255) NOT NULL,  createdat TIMESTAMP DEFAULT " +
                             "CURRENT_TIMESTAMP, " +
                             "updatedat TIMESTAMP DEFAULT CURRENT_TIMESTAMP)")

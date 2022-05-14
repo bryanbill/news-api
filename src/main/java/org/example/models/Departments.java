@@ -37,4 +37,12 @@ public class Departments {
     public String getUpdatedAt() {
         return updatedAt;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setEmployeeCount(int employeeCount) {
+        this.employeeCount = employeeCount;
+    }
 }

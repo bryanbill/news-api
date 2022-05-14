@@ -46,8 +46,9 @@ public class DepartmentsDao implements IDepartment {
     @Override
     public boolean createDepartment(Connection connection, Departments department) {
         try {
+          //  connection.getJdbcConnection().setAutoCommit(false);
             return connection.createQuery("INSERT INTO departments (departmentname, description)" +
-                            " VALUES (:departmentName, :description)")
+                            " VALUES (:departmentname, :description)")
                     .bind(department)
                     .executeUpdate().getResult() > 0;
 
@@ -64,8 +65,10 @@ public class DepartmentsDao implements IDepartment {
     @Override
     public boolean updateDepartment(Connection connection, Departments department) {
         try {
+
             return connection.createQuery("UPDATE departments SET employeeCount = :count WHERE id = :id")
                     .bind(department)
+                    .addParameter("count", department.getEmployeeCount())
                     .executeUpdate().getResult() > 0;
 
         } catch (Exception e) {

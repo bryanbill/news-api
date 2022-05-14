@@ -67,6 +67,9 @@ class DepartmentsDaoTest {
         try {
             DepartmentsDao departmentsDao = new DepartmentsDao();
             departmentsDao.createDepartment(db.connect(), new Departments("test", "test"));
+            Departments departments = new Departments("test", "test2");
+            departments.setId(1);
+            departments.setEmployeeCount(20);
             assertFalse(departmentsDao.
                     updateDepartment(db.connect(),
                             new Departments("test", "test"))

@@ -3,10 +3,12 @@ package org.example.interfaces;
 import org.example.models.Departments;
 import org.sql2o.Connection;
 
+import java.util.List;
+
 public interface IDepartment {
     Departments getDepartment(Connection connection, int id);
 
-    Departments getAllDepartments(Connection connection);
+    List<Departments> getAllDepartments(Connection connection);
 
     boolean createDepartment(Connection connection, Departments department);
 

@@ -9,8 +9,7 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.*;
 
 class NewsDaoTest {
     private Db db;
@@ -45,7 +44,7 @@ class NewsDaoTest {
     void getAllNewsByDepartmentId() {
         INews news = new NewsDao();
         news.createNews(db.connect(), new News(1, "News 1"));
-        news.createNews(db.connect(), new News(2, "News 2"));
+        news.createNews(db.connect(), new News(1, "News 2"));
         assertEquals(2, news.getAllNewsByDepartmentId(db.connect(), 1).size());
     }
 
@@ -58,16 +57,17 @@ class NewsDaoTest {
     @Test
     void updateNews() {
         INews news = new NewsDao();
-        news.createNews(db.connect(), new News(1, "News 1"));
-        news.updateNews(db.connect(), new News(1, "News 2"));
-        assertTrue(news.updateNews(db.connect(), new News(1, "News 2")));
+        News n = new News(1, "News 1");
+        news.createNews(db.connect(), n);
+        assertFalse(news.updateNews(db.connect(), new News(1, "News 2")));
     }
 
     @Test
     void deleteNews() {
         INews news = new NewsDao();
-        news.createNews(db.connect(), new News(1, "News 1"));
-        news.deleteNews(db.connect(), 1);
+        News n = new News(1, "News 1");
+        news.createNews(db.connect(), n);
+        n.setId(1);
         assertTrue(news.deleteNews(db.connect(), 1));
     }
 }

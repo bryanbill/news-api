@@ -8,7 +8,6 @@ import org.example.models.Departments;
 import org.example.models.News;
 import org.example.models.Users;
 import org.sql2o.Connection;
-
 import static spark.Spark.*;
 
 public class Router {
@@ -102,5 +101,7 @@ public class Router {
             return gson.toJson(new DepartmentsDao().deleteDepartment(connection,
                     Integer.parseInt(req.params(":id"))));
         });
+
+
     }
 }

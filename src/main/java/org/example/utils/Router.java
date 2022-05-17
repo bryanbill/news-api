@@ -13,9 +13,9 @@ import static spark.Spark.*;
 
 public class Router {
     public static void run(Connection connection) {
+        port(8082);
         get("/users", (req, res) -> {
             Gson gson = new Gson();
-
             res.status(200);
             res.type("application/json");
             return gson.toJson(new UserDao().getAllUsers(connection));

@@ -299,7 +299,7 @@
 	"variable": [
 		{
 			"key": "baseUrl",
-			"value": "http://localhost:4567",
+			"value": "https://news-api.soloo.me",
 			"type": "string"
 		}
 	]

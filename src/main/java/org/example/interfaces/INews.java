@@ -1,6 +1,7 @@
 package org.example.interfaces;
 
 import org.example.models.News;
+import org.example.models.Users;
 import org.sql2o.Connection;
 
 import java.util.List;
@@ -11,6 +12,8 @@ public interface INews {
     List<News> getAllNews(Connection connection);
 
     List<News> getAllNewsByDepartmentId(Connection connection, int departmentId);
+
+    List<Users> getDepartmentUsers(Connection connection, int id);
 
     boolean createNews(Connection connection, News news);
 

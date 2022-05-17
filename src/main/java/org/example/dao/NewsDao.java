@@ -2,6 +2,7 @@ package org.example.dao;
 
 import org.example.interfaces.INews;
 import org.example.models.News;
+import org.example.models.Users;
 import org.sql2o.Connection;
 import org.sql2o.Sql2oException;
 
@@ -54,6 +55,23 @@ public class NewsDao implements INews {
                     .executeAndFetch(News.class);
         } catch (Sql2oException ex) {
             throw new Sql2oException("Could not get all news by department id " + departmentId, ex);
+        }
+    }
+
+    /**
+     * @param connection 
+     * @param id
+     * @return
+     */
+    @Override
+    public List<Users> getDepartmentUsers(Connection connection, int id) {
+        try {
+            String sql = "SELECT * FROM users WHERE departmentid = :id";
+            return connection.createQuery(sql)
+                    .addParameter("id", id)
+                    .executeAndFetch(Users.class);
+        } catch (Sql2oException ex) {
+            throw new Sql2oException("Could not get all users by department id " + id, ex);
         }
     }
 
